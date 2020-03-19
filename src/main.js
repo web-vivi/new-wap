@@ -12,10 +12,8 @@ import VueRouter from 'vue-router'
 Vue.config.productionTip = false
 
 Vue.prototype.$store = store;   //store挂载
-router.beforeEach((to, from, next) => {
-  
-  //localStorage.clear();
-  if(store.state.userInfo){
+router.beforeEach((to, from, next) => {  
+  if(store.state.token){
     if(to.path ==="/login"){
       next({path:"/"});
     }else{

@@ -42,20 +42,21 @@ export default {
            repeat:''
         }
     },
+
     methods:{
         login(event){ 
-            event.preventDefault();
+            event.preventDefault(); 
+            //console.log(this.$store.state.token.username +":"+this.$store.state.token.password ) 
+            console.log(this.repeat)    ;    
             if(!this.form.username || !this.form.password){
               alert("用户名和密码不能为空!");
               return false;
-            } else if((this.form.username=="admin" && this.form.password=="123456")||(this.form.username===localStorage.getItem("roll.username") && this.form.password===localStorage.getItem("roll.password"))){
-                const that=this;
-                localStorage.setItem("roll",that.form);               
-                store.commit("login", {
-                    account:that.username,
-                    password:that.password
-                });
-                that.$router.push("./");                
+            } else if((this.form.username=="admin" && this.form.password=="123456")||(this.repeat && this.form.username===this.$store.state.token.username && this.form.password===this.$store.state.token.password)){
+                const that=this;                
+                sessionStorage.setItem("username", this.form.username);                
+                store.commit("setToken", that.form.username);                
+                that.$router.push("./");
+
             }else{
                 alert("用户名和密码不正确！");
                 return false;
@@ -74,12 +75,16 @@ export default {
             }else if(this.form.password!==this.repeat){
                 alert("两次输入的密码不一致 ");                
             }else{
-                localStorage.setItem("roll",this.form);
+                const that=this;
+                store.commit("setToken", {
+                    username: that.form.username,
+                    password: that.form.password
+                });
                 alert("注册成功，请登录");
-                this.form.username='';
-                this.form.password='';
-                this.repeat='';
-                this.loginr=true;
+                that.form.username='';
+                that.form.password='';
+                //this.repeat='';
+                that.loginr=true;
             }
         },
         runlogin(){
