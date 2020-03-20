@@ -78,17 +78,17 @@ export default {
             }
         ];        
         const that=this;
-        var status=sessionStorage.getItem('userStatus');
-        var level=sessionStorage.getItem('vipLevel');
+        var status=that.$store.getters.infoStatus;
+        var level=that.$store.getters.infoLevel; 
         if(status && level){                    
-            for(let j=0,len=that.vipList.length;j<=len;j++){                
+            for(let j=0,len=that.vipList.length;j<len;j++){ 
                 if(that.vipList[j].userStatus==status && that.vipList[j].vipLevel==level){
                     console.log(j);
                     that.listNew(j);
                     return false;
                 }
             }  
-        }      
+        }  
     },
      computed:{
          ...mapState(["token"]),

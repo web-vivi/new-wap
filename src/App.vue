@@ -10,13 +10,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 body{
   	font-family: Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,  SimSun, sans-serif;
 	font-size: 14px;
 	-webkit-font-smoothing: antialiased;
 }
-body,h2,p,div,li,ul,input {
+body,h3,p,div,li,ul,input {
 	margin: 0px;
 	padding: 0px;
 }

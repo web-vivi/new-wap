@@ -1,21 +1,11 @@
-# new-wap
+# 通过学习用vue制作的一个会员权限的项目
 
-> A Vue.js project
+> 主要是实现会员是否有权限观看视频，同时可以通过点击购买VIP获取选权限来观看视频
 
-## Build Setup
+## 介绍
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+1.用户可以通过系统给的账户密码进行登录，也可以通过新注册账号来进行登录；
+2.用户再未关闭当前页面时如未登录则直接跳转登录页，如登录过则直接跳指定页或者首页，主要用的是sessionStorage；
+3.用户观看权限，可以通过购买来获取VIP等级来观看；
+4.首页列表自定义了一个card组件；
+5.页面主要是用的vuex来处理各个页面之间权限的共享；

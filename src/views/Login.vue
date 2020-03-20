@@ -47,13 +47,19 @@ export default {
         login(event){ 
             event.preventDefault(); 
             //console.log(this.$store.state.token.username +":"+this.$store.state.token.password ) 
-            console.log(this.repeat)    ;    
+            //console.log(this.repeat)    ;    
             if(!this.form.username || !this.form.password){
               alert("用户名和密码不能为空!");
               return false;
             } else if((this.form.username=="admin" && this.form.password=="123456")||(this.repeat && this.form.username===this.$store.state.token.username && this.form.password===this.$store.state.token.password)){
                 const that=this;                
-                sessionStorage.setItem("username", this.form.username);                
+                sessionStorage.setItem("username", this.form.username); 
+                // sessionStorage.setItem('userStatus',0);
+                // sessionStorage.setItem('vipLevel', 0);  
+                store.commit("setMemberInfo",{
+                    userStatus:0,
+                    vipLevel:0
+                });             
                 store.commit("setToken", that.form.username);                
                 that.$router.push("./");
 

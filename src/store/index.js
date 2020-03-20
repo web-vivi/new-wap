@@ -17,9 +17,9 @@ const store=new Vuex.Store({
             state.token=token;
         }
     },
-    // getters:{
-    //     info: state => state.role.info,
-    // },
+    getters:{
+        token: state => state.token
+    },
     modules: {        
         role
     }

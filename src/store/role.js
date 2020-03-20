@@ -21,9 +21,25 @@ export default{
                 })
                 resolve("购买成功")
             })
+        },
+        getFreeVip({commit,state}){
+            return new Promise((resolve, reject) => { 
+                commit("setMemberInfo",{
+                    userStatus: 1,
+                    vipLevel: 0                
+                })
+                resolve("分享成功,您已免费获得一个月的VIP")
+                
+            })
         }
     },
     getters:{
+        infoStatus(state){
+            return state.userStatus
+        },
+        infoLevel(state){
+            return state.vipLevel
+        },
         memberInfo(state) {
             //console.log(state.userStatus);
             var status=Number(state.userStatus);
