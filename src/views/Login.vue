@@ -122,12 +122,12 @@ input:-moz-placeholder {
  #Login{
      background:$color-green;
      margin:0;
-     padding:0;
-     max-width:750px;
+     padding:0;     
      height:100%;
     
      >div{
         padding-top:100px;
+        box-sizing: border-box;
      }
     .en_login{
         font-size:3rem;
@@ -135,11 +135,10 @@ input:-moz-placeholder {
     }
     .login_tit{
         position:absolute;
-        top:120px;
+        top:96px;
         left:0;
         right:0;
-        font-size:2rem; 
-        max-width:750px;      
+        font-size:2rem;              
         color:rgba($color: #000, $alpha: 0.75) 
     }
     .login_input{
